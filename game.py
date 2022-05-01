@@ -19,6 +19,6 @@ class Game:
             self.players[1].wins += 1
 
     def results(self):
-        print('Game result: ')
+        print('\nGame result: \n')
         for round in self.rounds:
             print(round)

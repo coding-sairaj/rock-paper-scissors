@@ -17,10 +17,10 @@ def getValidIntegerInput(prompt, choices):
     return value
 
 def setPlayerChoice(player1, player2):
-    print("Enter choice \n 0 Rock, \n 1 Paper, and \n 2 Scissors \n")
-    player1.setChoice(getValidIntegerInput(f'Enter {player1.name} choice:', [0,1,2]))
+    print("\n Enter choice \n 0 Rock, \n 1 Paper, and \n 2 Scissors \n")
+    player1.setChoice(getValidIntegerInput(f'\n Enter {player1.name} choice:', [0,1,2]))
     if option == 2:
-        player2.setChoice(getValidIntegerInput(f'Enter {player2.name} choice:', [0,1,2]))
+        player2.setChoice(getValidIntegerInput(f'\n Enter {player2.name} choice:', [0,1,2]))
 
 games = []
 
@@ -56,7 +56,7 @@ while True:
         setPlayerChoice(player1, player2)        
         game.playGame()
         game.results()
-        
+        print('\n')
         val = getValidIntegerInput('Enter \n 1 Play Again \n 2 Save & Exit \n 9 Exit Game. \n', [1,2,9])
         if val == 9:
             break

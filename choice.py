@@ -1,4 +1,3 @@
-from email.policy import default
 from enum import IntEnum
 
 class Choice(IntEnum):
