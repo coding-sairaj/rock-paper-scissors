@@ -19,7 +19,7 @@ def getValidIntegerInput(prompt, choices):
 def setPlayerChoice(player1, player2):
     print("\n Enter choice \n 0 Rock, \n 1 Paper, and \n 2 Scissors \n")
     player1.setChoice(getValidIntegerInput(f'\n Enter {player1.name} choice:', [0,1,2]))
-    if option == 2:
+    if not player2.isComputer:
         player2.setChoice(getValidIntegerInput(f'\n Enter {player2.name} choice:', [0,1,2]))
 
 games = []
@@ -31,12 +31,12 @@ def showGames():
 
 while True:
     option = getValidIntegerInput('Enter \n 1 Single player \n 2 Multi player \n 3 Show Games \n 4 Load Saved Game \n 9 Quit \n', [1,2,3,4,9])
-
+    gameidx = -1
     if option == 9:
         break
     if option == 1:
         player1 = Player(input('Enter player 1 name: '))
-        player2 = Player('Computer1')
+        player2 = Player(isComputer=True)
     elif option == 3:
         showGames()
         continue
@@ -59,7 +59,12 @@ while True:
         print('\n')
         val = getValidIntegerInput('Enter \n 1 Play Again \n 2 Save & Exit \n 9 Exit Game. \n', [1,2,9])
         if val == 9:
+            gameidx = -1
             break
         elif val == 2:
-            games.append(game)
+            if gameidx != -1:
+                games[gameidx] = game
+            else:
+                games.append(game)
+            gameidx = -1
             break
